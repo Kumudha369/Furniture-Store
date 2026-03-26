@@ -8,11 +8,21 @@ dotenv.config();
 
 const app = express();
 
+// ── Root Route (FIXED) ─────────────────────────────────────
+app.get("/", (req, res) => {
+  res.send("🚀 Jothi Furniture API is running successfully");
+});
+
 // ── Middleware ──────────────────────────────────────────────
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173'],
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'http://127.0.0.1:5173'
+  ],
   credentials: true
 }));
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -26,7 +36,7 @@ app.use('/api/reviews',         require('./routes/reviews'));
 app.use('/api/admin',           require('./routes/admin'));
 app.use('/api/recommendations', require('./routes/recommendations'));
 
-// ── Health check ────────────────────────────────────────────
+// ── Health Check (KEEP ONLY ONE) ────────────────────────────
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'OK',
@@ -36,12 +46,15 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// ── 404 handler ─────────────────────────────────────────────
+// ── 404 Handler ─────────────────────────────────────────────
 app.use('/api/*', (req, res) => {
-  res.status(404).json({ success: false, message: `Route ${req.originalUrl} not found` });
+  res.status(404).json({
+    success: false,
+    message: `Route ${req.originalUrl} not found`
+  });
 });
 
-// ── Global error handler ────────────────────────────────────
+// ── Global Error Handler ────────────────────────────────────
 app.use((err, req, res, next) => {
   console.error('❌ Error:', err.message);
   res.status(err.status || 500).json({
@@ -51,8 +64,8 @@ app.use((err, req, res, next) => {
 });
 
 // ── Connect MongoDB & Start Server ──────────────────────────
-const PORT       = process.env.PORT       || 5000;
-const MONGO_URI  = process.env.MONGODB_URI || 'mongodb://localhost:27017/jothi-furniture';
+const PORT      = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/jothi-furniture';
 
 mongoose.connect(MONGO_URI)
   .then(() => {
@@ -64,6 +77,7 @@ mongoose.connect(MONGO_URI)
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.log('  ✅  MongoDB Connected Successfully');
     console.log(`  🗄️   Database: jothi-furniture`);
+
     app.listen(PORT, () => {
       console.log(`  🚀  API Server: http://localhost:${PORT}`);
       console.log(`  🏥  Health:     http://localhost:${PORT}/api/health`);
@@ -78,8 +92,8 @@ mongoose.connect(MONGO_URI)
     console.error('  📋  Error:', err.message);
     console.error('');
     console.error('  🔧  Fix: Make sure MongoDB is running');
-    console.error('  👉  Run: mongod  (in a separate terminal)');
-    console.error('  👉  Or install MongoDB from: https://mongodb.com');
+    console.error('  👉  Run: mongod');
+    console.error('  👉  Or use MongoDB Atlas');
     console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     process.exit(1);
   });
