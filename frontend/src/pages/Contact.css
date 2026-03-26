@@ -1,0 +1,22 @@
+.contact-page .section-header { margin-bottom: 2.5rem; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 2rem; align-items: start; }
+.contact-info { padding: 2rem; margin-bottom: 1rem; }
+.contact-info h3 { margin-bottom: 1.5rem; }
+.info-item { display: flex; gap: 14px; margin-bottom: 1.25rem; align-items: flex-start; color: var(--primary-light); }
+.info-item div strong { display: block; font-size: 0.875rem; color: var(--text); margin-bottom: 2px; }
+.info-item div p { font-size: 0.85rem; color: var(--text-2); line-height: 1.6; margin: 0; }
+.map-embed { padding: 0; overflow: hidden; }
+.map-placeholder {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 200px;
+  background: var(--bg-2);
+  color: var(--primary-light);
+  text-align: center;
+  padding: 1.5rem;
+}
+.contact-form-card { padding: 2rem; }
+.form-header { display: flex; align-items: center; gap: 10px; color: var(--primary); margin-bottom: 1.5rem; }
+.form-header h3 { margin: 0; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .form-row-2 { grid-template-columns: 1fr; } }
