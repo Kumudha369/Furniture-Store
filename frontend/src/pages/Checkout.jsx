@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../utils/axiosConfig.js';
 import useCartStore from '../store/cartStore';
 import useAuthStore from '../store/authStore';
 import toast from 'react-hot-toast';

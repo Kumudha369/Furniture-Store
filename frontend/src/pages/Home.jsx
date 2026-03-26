@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Truck, Award, Phone, MapPin, Layout, Star, ChevronRight } from 'lucide-react';
-import axios from 'axios';
+import axios from '../utils/axiosConfig.js';
 import ProductCard from '../components/ProductCard';
 
 // Real high-quality furniture images from Unsplash (free, no auth needed)

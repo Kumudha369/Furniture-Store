@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import axios from 'axios';
+import axios from '../utils/axiosConfig.js';
 import useAuthStore from '../store/authStore';
 import toast from 'react-hot-toast';
 import Canvas2D from '../components/Canvas2D';

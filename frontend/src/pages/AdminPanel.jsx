@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../utils/axiosConfig.js';
 import toast from 'react-hot-toast';
 import { BarChart2, Package, ShoppingBag, Users, MessageSquare, Plus, Edit, Trash2, RefreshCw } from 'lucide-react';
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search, X, SlidersHorizontal } from 'lucide-react';
-import axios from 'axios';
+import axios from '../utils/axiosConfig.js';
 import ProductCard from '../components/ProductCard';
 
 const CATS = ['All','Sofa','Chair','Table','Bed','Wardrobe','Shelf','Desk','Cabinet','Dining','Outdoor','Industrial','Other'];

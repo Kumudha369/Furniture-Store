@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../utils/axiosConfig.js';
 import toast from 'react-hot-toast';
 import { MapPin, Phone, Mail, Clock, MessageSquare } from 'lucide-react';
 import './Contact.css';

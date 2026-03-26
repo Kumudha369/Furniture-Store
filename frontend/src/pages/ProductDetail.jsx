@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ShoppingCart, Star, ArrowLeft, Package, Ruler, Heart, Share2, CheckCircle } from 'lucide-react';
-import axios from 'axios';
+import axios from '../utils/axiosConfig.js';
 import useCartStore from '../store/cartStore';
 import useAuthStore from '../store/authStore';
 import toast from 'react-hot-toast';
